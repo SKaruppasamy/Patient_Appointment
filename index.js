@@ -7,6 +7,8 @@ let app=express();
 
 let apiRoutes = require("./Routes/routes.js")
 
+var mongodb = require('./Config/MongoConfig.js');
+
 app.use(bodyParser.urlencoded({
     extended : true
 }));
@@ -14,9 +16,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-const dbPath = 'mongodb://localhost:27017/Patient_Appointment';
-const options = {useNewUrlParser: true, useUnifiedTopology: true}
-const mongo = mongoose.connect(dbPath, options);
+const mongo = mongoose.connect(mongodb.url);
 
 mongo.then(() => {
     console.log('connected');

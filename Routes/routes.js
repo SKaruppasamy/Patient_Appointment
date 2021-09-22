@@ -8,19 +8,19 @@ router.get('/', function(req, res) {
     });
 });
 
-//Import Bio Controller
-var bioController = require('../bioController/bioController.js');
+//Import Patient Controller
+var Controller = require('../Controller/Controller.js');
 
-// Bio routes
-router.route('/bio')
-    .get(bioController.index)
-    .post(bioController.add);
+// Patient routes
+router.route('/Patient')
+    .get(Controller.index)
+    .post(Controller.add);
 
-router.route('/bio/:bio_id')
-    .get(bioController.view)
-    .patch(bioController.update)
-    .put(bioController.update)
-    .delete(bioController.Delete);
+router.route('/Patient/:Patient_id')
+    .get(Controller.view)
+    .patch(Controller.update)
+    .put(Controller.update)
+    .delete(Controller.Delete);
 
 //Export API routes
 module.exports = router;

@@ -1,10 +1,14 @@
 var mongoose = require('mongoose');
 
 //schema
-var bioSchema = mongoose.Schema({
+var Schema = mongoose.Schema({
+    Appointment : {
+        type : String,
+        required: false 
+    },
     Appointment_Identifier: {
         type: String,
-        required: true
+        required: false 
     },
     Appointment_status: {
         type: String,
@@ -12,7 +16,7 @@ var bioSchema = mongoose.Schema({
     },
     Appointment_CancellationReason: {
         type: String,
-        required: true
+        required: false
     },
     Appointment_Specialty: {
         type: String,
@@ -24,39 +28,39 @@ var bioSchema = mongoose.Schema({
     },
     Appointment_Priority : {
         type: String,
-        required:true
+        required:false
     },
     Appointment_Description: {
         type: String,
-        required:true
+        required:false
     },
     Appointment_SupportingInformation: {
         type: String,
-        required: true
+        required: false
     },
     Appointment_start: {
         type: Date,
-        required: true
+        required: false
     },
     Appointment_end: {
         type: Date,
-        required: true
+        required: false
     },
     Appointment_Slot: {
         type: String,
-        required: true
+        required: false
     },
     Appointment_Comment: {
         type: String,
-        required: true
+        required: false
     },
     Appointment_Participant: {
         type: String,
-        required: true
+        required:false
     },
     Appointment_Participant_type: {
         type: String,
-
+        required: false
     },
     Appointment_Participant_actor: {
         type: String,
@@ -72,11 +76,11 @@ var bioSchema = mongoose.Schema({
     },
     Appointment_Participant_Period: {
         type: String,
-        required: true
+        required: false
     },
     Appointment_requestedPeriod: {
         type: String,
-        required: true
+        required: false
         
     },
     created_at: {
@@ -86,8 +90,8 @@ var bioSchema = mongoose.Schema({
 });
 
 // Export Bio Model
-var Bio = module.exports = mongoose.model('bio', bioSchema);
+var patient_Appoint = module.exports = mongoose.model('bio', Schema);
 
 module.exports.get = function (callback, limit) {
-   Bio.find(callback).limit(limit); 
+   patient_Appoint.find(callback).limit(limit); 
 }
