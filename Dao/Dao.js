@@ -10,8 +10,8 @@ exports.Dao_index= function(req,callback){
         callback.json({
             message: "*** Patient Appointment ***",
             status: "success",
-            message: "Got Patient Appointment Successfully!",
-            callack(Patient);      
+            message: "Got Patient Appointment Successfully!", 
+            data:Patient   
         });
     });
 };
@@ -49,7 +49,7 @@ exports.Dao_add = function (req, callback) {
             callback.json({
                 message: "*** Patient Appointment ***",
                 message: "New Patient Appointment Added!",
-                callback(Patient);
+                data:Patient
             
             });
         });
@@ -64,7 +64,7 @@ exports.Dao_view = function (req, callback) {
             callback.json({
                 message: "*** Patient Appointment ***",
                 message: 'Patient Appointment Details',
-                callback(Patient);
+                data:Patient
             });
         });
     };
@@ -102,7 +102,7 @@ exports.Dao_update = function (req, callback) {
                 callback.json ({
                 message: "*** Patient Appointment ***",
                 message: "Patient Appointment Updated Successfully",
-                callback(Patient);
+                data:Patient
                 });
         });
     });
@@ -119,7 +119,7 @@ exports.Dao_Delete = function (req, callback) {
                 message: "*** Patient Appointment ***",
                 status: "success",
                 message: 'Patient Appointment Deleted',
-                callback(Patient);
+                data:Patient
         });
     });
 };  

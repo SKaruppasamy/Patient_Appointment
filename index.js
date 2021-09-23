@@ -1,11 +1,11 @@
-let express = require('express');
+var express=require('express');
 
-let bodyParser=require('body-parser');
+var bodyParser=require('body-parser');
 
-let mongoose=require('mongoose');
-let app=express();
+var mongoose=require('mongoose');
+var app=new express();
 
-let apiRoutes = require("./Routes/routes.js")
+var apiRoutes = require("./Routes/routes.js")
 
 var mongodb = require('./Config/MongoConfig.js');
 
@@ -13,11 +13,9 @@ app.use(bodyParser.urlencoded({
     extended : true
 }));
 
-
 app.use(bodyParser.json());
 
 const mongo = mongoose.connect(mongodb.url);
-
 mongo.then(() => {
     console.log('connected');
 }, error => {
@@ -42,3 +40,4 @@ app.listen(port, function() {
     console.log("Running Appointment on Port "+ port);
 });
 
+module.exports = app;
