@@ -1,5 +1,4 @@
 patient_Appoint = require('../Model/Models.js');
-var shortid = require('shortid');
     // ViewAll patient
 exports.Dao_index= function(req,callback){
     patient_Appoint.get(function (err, Patient) {
@@ -20,9 +19,6 @@ exports.Dao_index= function(req,callback){
     // New patient
 exports.Dao_add = function (req, callback) {
         var Patient= new patient_Appoint();
-        var id = shortid.generate();
-        console.log(id);
-        Patient.id=id;
         Patient.Appointment = req.body.Appointment;
         Patient.Appointment_Identifier = req.body.Appointment_Identifier;
         Patient.Appointment_status = req.body.Appointment_status;
